@@ -152,7 +152,7 @@
   }
 
   .card-hotel {
-    @apply relative overflow-hidden group cursor-pointer;
+    @apply relative overflow-hidden cursor-pointer;
   }
 
   .card-hotel img {
