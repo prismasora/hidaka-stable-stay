@@ -1,96 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Noto+Sans+JP:wght@300;400;500;600;700&family=Noto+Serif+JP:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
-
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Warm hospitality palette */
+    --background: 40 20% 97%;
+    --foreground: 30 10% 15%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 40 25% 96%;
+    --card-foreground: 30 10% 15%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 40 20% 97%;
+    --popover-foreground: 30 10% 15%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 30 15% 25%;
+    --primary-foreground: 40 20% 97%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 35 20% 92%;
+    --secondary-foreground: 30 15% 25%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 35 15% 93%;
+    --muted-foreground: 30 8% 50%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 350 30% 88%;
+    --accent-foreground: 350 25% 30%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 35 15% 88%;
+    --input: 35 15% 88%;
+    --ring: 30 15% 25%;
 
-    --radius: 0.5rem;
+    --radius: 0.25rem;
+
+    /* Custom tokens */
+    --warm-beige: 38 30% 92%;
+    --warm-brown: 30 20% 35%;
+    --sakura: 350 40% 85%;
+    --sakura-deep: 350 35% 65%;
+    --forest: 150 25% 25%;
+    --forest-light: 150 15% 40%;
+    --walnut: 25 30% 30%;
+    --gold: 42 50% 55%;
+    --cream: 42 40% 95%;
+    --hero-overlay: 30 20% 10%;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
-  }
 
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --font-display: 'Cormorant Garamond', 'Noto Serif JP', serif;
+    --font-body: 'Noto Sans JP', sans-serif;
+    --font-serif: 'Noto Serif JP', serif;
   }
 }
 
@@ -101,5 +71,139 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-family: var(--font-body);
+    font-weight: 300;
+    letter-spacing: 0.02em;
+    line-height: 1.8;
+    -webkit-font-smoothing: antialiased;
   }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    line-height: 1.3;
+  }
+}
+
+@layer components {
+  .section-padding {
+    @apply px-6 py-20 md:px-12 md:py-28 lg:px-20 lg:py-32;
+  }
+
+  .section-heading {
+    font-family: var(--font-display);
+    @apply text-3xl md:text-4xl lg:text-5xl tracking-wide;
+  }
+
+  .section-heading-jp {
+    font-family: var(--font-serif);
+    @apply text-2xl md:text-3xl lg:text-4xl tracking-wider;
+  }
+
+  .section-subheading {
+    @apply text-sm md:text-base tracking-widest uppercase text-muted-foreground;
+    letter-spacing: 0.2em;
+  }
+
+  .hero-overlay {
+    background: linear-gradient(
+      to bottom,
+      hsl(var(--hero-overlay) / 0.3) 0%,
+      hsl(var(--hero-overlay) / 0.5) 50%,
+      hsl(var(--hero-overlay) / 0.7) 100%
+    );
+  }
+
+  .img-cover {
+    @apply w-full h-full object-cover;
+  }
+
+  .booking-btn {
+    @apply inline-flex items-center justify-center px-8 py-3 text-sm tracking-widest uppercase transition-all duration-300;
+    font-family: var(--font-body);
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    background: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+  }
+
+  .booking-btn:hover {
+    background: hsl(var(--warm-brown));
+  }
+
+  .booking-btn-outline {
+    @apply inline-flex items-center justify-center px-8 py-3 text-sm tracking-widest uppercase transition-all duration-300 border;
+    font-family: var(--font-body);
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    border-color: hsl(var(--primary-foreground));
+    color: hsl(var(--primary-foreground));
+    background: transparent;
+  }
+
+  .booking-btn-outline:hover {
+    background: hsl(var(--primary-foreground) / 0.15);
+  }
+
+  .divider-line {
+    @apply w-12 h-px mx-auto;
+    background: hsl(var(--gold));
+  }
+
+  .card-hotel {
+    @apply relative overflow-hidden group cursor-pointer;
+  }
+
+  .card-hotel img {
+    @apply transition-transform duration-700 ease-out;
+  }
+
+  .card-hotel:hover img {
+    @apply scale-105;
+  }
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground) / 0.3);
+  border-radius: 3px;
+}
+
+/* Fade in animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-fade-in {
+  animation: fadeIn 1s ease-out forwards;
 }
